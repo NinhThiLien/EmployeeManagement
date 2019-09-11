@@ -144,22 +144,6 @@ public class EmployeeController {
 		}
 	}
 
-	@RequestMapping(value = { "/type" }, method = RequestMethod.POST)
-	public String listView(Model model, HttpServletRequest request) {
-		String type = request.getParameter("type_view");
-		HttpSession session = request.getSession();
-		if ("card".equals(type)) {
-			session.setAttribute("type_view", "card");
-			session.setAttribute("total_view", "2");
-			return "redirect:/employees/"+String.valueOf(session.getAttribute("page_pre"));
-		} else {
-			session.setAttribute("type_view", "list");
-			session.setAttribute("total_view", "3");
-			return "redirect:/employees/"+String.valueOf(session.getAttribute("page_pre"));
-		}
-
-	}
-	
 	@RequestMapping(value = { "/ordertype" }, method = RequestMethod.POST)
 	public String orderView(Model model, HttpServletRequest request) {
 		String ordertype = request.getParameter("ordertype");
